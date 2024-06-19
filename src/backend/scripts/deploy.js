@@ -10,10 +10,10 @@ async function main() {
   const Marketplace = await ethers.getContractFactory("Marketplace");
 
   const nft = await NFT.deploy();
-  const marketplace = await Marketplace.de4ploy(); //number is fee percent of the Marketplace.sol contract
+  const marketplace = await Marketplace.deploy(4); //number is fee percent of the Marketplace.sol contract
 
-  saveFrontendFiles(marketplace, "Marketplace");
   saveFrontendFiles(nft, "NFT");
+  saveFrontendFiles(marketplace, "Marketplace");
 }
 
 function saveFrontendFiles(contract, name) {
