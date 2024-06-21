@@ -5,7 +5,6 @@ import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 
 contract Marketplace is ReentrancyGuard {
-
     address payable public immutable feeAccount;
     uint public immutable feePercent;
     uint public itemCount;
@@ -31,18 +30,22 @@ contract Marketplace is ReentrancyGuard {
     event Bought(
         uint itemId,
         address indexed nft,
-        uint tokenId, 
+        uint tokenId,
         uint price,
         address indexed seller,
         address indexed buyer
     );
 
-    constructor (uint _feePercent) {
+    constructor(uint _feePercent) {
         feeAccount = payable(msg.sender);
         feePercent = _feePercent;
     }
 
-    function makeItem(IERC721 _nft, uint _tokenId, uint _price) external nonReentrant {
+    function makeItem(
+        IERC721 _nft,
+        uint _tokenId,
+        uint _price
+    ) external nonReentrant {
         require(_price > 0, "Price must be greater than zero");
         itemCount++;
         _nft.transferFrom(msg.sender, address(this), _tokenId);
@@ -54,13 +57,7 @@ contract Marketplace is ReentrancyGuard {
             payable(msg.sender),
             false
         );
-        emit Offered(
-            itemCount, 
-            address(_nft),
-            _tokenId,
-            _price,
-            msg.sender
-        );
+        emit Offered(itemCount, address(_nft), _tokenId, _price, msg.sender);
     }
 
     function purchaseItem(uint _itemId) external payable nonReentrant {
@@ -83,8 +80,7 @@ contract Marketplace is ReentrancyGuard {
         );
     }
 
-    function getTotalPrice(uint _itemId) view public returns(uint) {
-        return ((items[_itemId].price*(100 + feePercent))/100);
+    function getTotalPrice(uint _itemId) public view returns (uint) {
+        return ((items[_itemId].price * (100 + feePercent)) / 100);
     }
-
 }
