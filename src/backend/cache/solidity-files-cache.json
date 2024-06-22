@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "C:\\Users\\teray\\OneDrive\\Documentos\\University\\TFG_Crypto\\App\\src\\backend\\contracts\\Marketplace.sol": {
-      "lastModificationDate": 1718790653549,
-      "contentHash": "c47c849803ff3a95f89d5447a2d7abeb",
+      "lastModificationDate": 1719048143818,
+      "contentHash": "8b2e98af14f6258a69063557901d7dcd",
       "sourceName": "src/backend/contracts/Marketplace.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -441,8 +441,8 @@
       ]
     },
     "C:\\Users\\teray\\OneDrive\\Documentos\\University\\TFG_Crypto\\App\\src\\backend\\contracts\\NFT.sol": {
-      "lastModificationDate": 1718212390726,
-      "contentHash": "d7f37b30d0692213c42237d98710203b",
+      "lastModificationDate": 1719048143849,
+      "contentHash": "e93921962fc6917ec400a2c2d4a1fed2",
       "sourceName": "src/backend/contracts/NFT.sol",
       "solcConfig": {
         "version": "0.8.4",
