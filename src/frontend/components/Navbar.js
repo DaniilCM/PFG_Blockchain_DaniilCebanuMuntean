@@ -13,7 +13,7 @@ const Navigation = ({ web3Handler, account }) => {
         <Navbar.Toggle aria-controls="navbar navbar-dark bg-primary" />
         <Navbar.Collapse aria-controls="navbar navbar-dark bg-primary" />
         <Nav className="me-auto">
-          <Nav.Link as={Link} to="/home">
+          <Nav.Link as={Link} to="/">
             Home
           </Nav.Link>
           <Nav.Link as={Link} to="/create-nft">
@@ -42,7 +42,7 @@ const Navigation = ({ web3Handler, account }) => {
             </Nav.Link>
           ) : (
             <Button onClick={web3Handler} variant="outline-light">
-              Connect Wallet
+              Connect Your Wallet
             </Button>
           )}
         </Nav>

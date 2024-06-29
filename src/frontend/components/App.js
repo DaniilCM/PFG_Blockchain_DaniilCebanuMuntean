@@ -24,6 +24,7 @@ function App() {
     const accounts = await window.ethereum.request({
       method: "eth_requestAccounts",
     });
+    console.log(accounts);
     setAccount(accounts[0]);
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
@@ -82,25 +83,25 @@ function App() {
             <Route
               path="/create-nft"
               element={
-                <Home marketplace={marketplace} nft={nft} /> //route of smart contracts for Home page
+                <Create marketplace={marketplace} nft={nft} /> //route of smart contracts for Create page
               }
             />
             <Route
               path="/listed-items"
               element={
-                <Home marketplace={marketplace} nft={nft} /> //route of smart contracts for Home page
+                <ListedItems marketplace={marketplace} nft={nft} account={account} /> //route of smart contracts for ListedItems page
               }
             />
             <Route
               path="/purchases"
               element={
-                <Home marketplace={marketplace} nft={nft} /> //route of smart contracts for Home page
+                <Purchases marketplace={marketplace} nft={nft} account={account} /> //route of smart contracts for Purchases page
               }
             />
             <Route
               path="/blog-partnerships"
               element={
-                <Home marketplace={marketplace} nft={nft} /> //route of smart contracts for Home page
+                <Blog /> //route for Blog page
               }
             />
           </Routes>

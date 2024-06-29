@@ -5,16 +5,17 @@ import { Row, Col, Card, Button } from "react-bootstrap";
 const Home = ({ marketplace, nft }) => {
   const [loading, setLoading] = useState(true);
   const [items, setItems] = useState([]);
+
   const loadMarketplaceItem = async () => {
     const itemCount = await marketplace.itemCount();
     let items = [];
 
     for (
-      let itemsInMarketplace = 1;
-      itemsInMarketplace <= itemCount;
-      itemsInMarketplace++
+      let itemCounter = 1;
+      itemCounter <= itemCount;
+      itemCounter++
     ) {
-      const item = marketplace.items[itemsInMarketplace];
+      const item = await marketplace.items(itemCounter);
 
       if (!item.sold) {
         const uri = await nft.tokenURI(item.tokenId);
@@ -42,7 +43,6 @@ const Home = ({ marketplace, nft }) => {
     loadMarketplaceItem();
   };
   useEffect(() => {
-    //React method to load modified items
     loadMarketplaceItem();
   }, []);
 
@@ -83,7 +83,7 @@ const Home = ({ marketplace, nft }) => {
         </div>
       ) : (
         <main style={{ padding: "1rem 0" }}>
-          <h2>There are no assets to show</h2>
+          <h2>There are no assets available to show</h2>
         </main>
       )}
     </div>

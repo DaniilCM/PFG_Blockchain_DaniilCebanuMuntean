@@ -25,7 +25,6 @@ describe("MarketplaceNFTs", function () {
   });
 
   describe("Deployment", function () {
-    //tests for deploying the contracts
     it("Should track the name and symbol of the NFT collection", async function () {
       const nftName = "DApp NFT";
       const nftSymbol = "DAPP";
